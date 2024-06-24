@@ -1,13 +1,106 @@
+<!DOCTYPE html>
 <html>
 
-<head> <title>我的个人博客</title></head>
+<head>
+    <title>略略略</title>
+    <link href="css/xbunny.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
+    <script src="js/jquery-3.7.1.js" type="text/javascript" charset="utf-8"></script>
+    <meta charset="UTF-8">
+    <script>
+        $(document).ready(function(){
+            $('#calculate').click(function(){
+                var num1 = parseFloat($('#number1').val()) || 0;
+                var num2 = parseFloat($('#number2').val()) || 0;
+                var num3 = parseFloat($('#number3').val()) || 0;
+                var num4 = parseFloat($('#number4').val()) || 0;
+                var num5 = parseFloat($('#number5').val()) || 0;
+                var num6 = parseFloat($('#number6').val()) || 0;
+                var num7 = parseFloat($('#number7').val()) || 0;
+                var num8 = parseFloat($('#number8').val()) || 0;
+                var num9 = parseFloat($('#number9').val()) || 0;
+                var num10 = parseFloat($('#number10').val()) || 0;
+                var num11 = parseFloat($('#number11').val()) || 0;
+                var num12 = parseFloat($('#number12').val()) || 0;
+                var numArr = [num1, num2, num3, num4, num5, num6, num7, num8, num9, num10, num11, num12];
+                var currSum = parseFloat($('#number01').val()) || 0; // 当前分值
+                var currNum = parseFloat($('#number02').val()) || 0; // 书本数量
+
+                var result0 = currNum*11;
+                // var result1 = 0;
+                var tempNum = result0;
+                var sum = 0;
+                for(let i=1; i<12; i++) {
+                    sum += tempNum * i;
+                    if (tempNum <= 1) {
+                        break
+                    }
+                    tempNum = Math.floor((tempNum + numArr[i-1]) / 2)
+                }
+                if (tempNum > 0 && result0 > 2048) {
+                    var result00 = `满级双鱼${tempNum}个，增加分值${tempNum*25}`
+                    $('#result00').text(result00);
+                }
+                var result2 = currSum + sum;
+                var result11 = sum/result0;
+                $('#result0').text(result0);
+                $('#result1').text(sum);
+                $('#result2').text(result2);
+                $('#result11').text(result11);
+            });
+        });
+    </script>
+</head>
 
 <body>
+<div class="banner">
+    <h1>略略略</h1>
+</div>
 
-<h1>欢迎访问我的个人博客</h1>
-
-<p>这里是我的个人博客，我会分享一些我感兴趣的话题和经验，希望您能喜欢。</p>
-
+<div class="container">
+    <div class="container">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#pane-cal" type="button" role="tab" aria-controls="pane-cal" aria-selected="false">计算器</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#pane-info" type="button" role="tab" aria-controls="pane-info" aria-selected="false">说明</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="pane-cal" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="cal">
+                    当前分值：<input type="number" id="number01"> <p></p>
+                    书本数量：<input type="number" id="number02"> <p></p>
+                    当前星座：<p></p>
+                    1级<input type="number" id="number1" style="width: 50px">
+                    2级<input type="number" id="number2" style="width: 50px">
+                    3级<input type="number" id="number3" style="width: 50px">
+                    4级<input type="number" id="number4" style="width: 50px"><p></p>
+                    5级<input type="number" id="number5" style="width: 50px">
+                    6级<input type="number" id="number6" style="width: 50px">
+                    7级<input type="number" id="number7" style="width: 50px">
+                    8级<input type="number" id="number8" style="width: 50px"><p></p>
+                    9级<input type="number" id="number9" style="width: 50px">
+                    10级<input type="number" id="number10" style="width: 50px">
+                    11级<input type="number" id="number11" style="width: 50px">
+                    12级<input type="number" id="number12" style="width: 50px"><p></p>
+                    <button type="button" class="btn btn-secondary" id="calculate">计算</button><p></p>
+                    <div>合计体力：<span id="result0"></span></div><p></p>
+                    <div>本次分数：<span id="result1"></span></div><p></p>
+                    <div>合计分数：<span id="result2"></span></div><p></p>
+                    <span id="result00" style="font-size: 13px;"></span>
+                    <div style="font-size: 13px;">(平均分数：<span id="result11"></span></div>
+                    <div style="font-size: 13px;">(看平均分数时在不输入额外星座时有参考性)</div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pane-info" role="tabpanel" aria-labelledby="contact-tab">
+                没有说明哦
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 
 </html>
