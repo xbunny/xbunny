@@ -42,3 +42,7 @@ body {
 .hidden {
     display: none;
 }
+
+.info {
+    margin: 10px;
+}
