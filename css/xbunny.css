@@ -1,6 +1,25 @@
+/* 应用全局样式 */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
 body {
     font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin: 5px 15px 0 15px;
+
+    /* 设置背景图片 */
+    /*background-image: url("../img/bg.jpeg"); !* 背景图片路径 *!*/
+    /*background-position: center; !* 背景图片居中 *!*/
+    /*background-repeat: no-repeat; !* 背景图片不重复 *!*/
+    /*background-size: cover; !* 背景图片覆盖整个页面 *!*/
+
+    /* 设置一个线性渐变背景 */
+    /*background: linear-gradient(to right, #a0c8dc, #a0dcdc);*/
+    /*background: linear-gradient(to right, #a0c8dc, #bed2dc);*/
+    /* 为了确保渐变背景覆盖整个页面，设置高度为100% */
+    /*height: 100%;*/
 }
 
 .banner {
@@ -18,4 +37,8 @@ body {
 
 .cal {
     margin: 10px;
+}
+
+.hidden {
+    display: none;
 }
